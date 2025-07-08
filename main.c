@@ -28,10 +28,10 @@ int	isnum(char *str)
 {
 	if (!str || *str == ' ')
 		return (0);
+	if (*str == '-' || *str == '+')
+		str++;
 	while (*str)
 	{
-		if (*str == '-')
-			str++;
 		if (*str >= '0' && *str <= '9')
 			str++;
 		else
@@ -48,9 +48,7 @@ int input_check(char **argv)
 	while (argv[i])
 	{
 		if (isnum(argv[i]) != 1)
-		{
 			return (-1);
-		}
 		i++;
 	}
 	return (1);
