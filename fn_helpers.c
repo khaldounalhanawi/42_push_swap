@@ -16,10 +16,19 @@ int isnum(char *str)
 	return (1);
 }
 
-void ft_exit(void)
+void ft_exit(void *p1)
 {
+	if (p1)
+		free ((void *)p1);
 	write(2, "ERROR\n", 6);
 	exit(1);
+}
+
+void *nullnfree(void *p1)
+{
+	if (p1)
+		free ((void *)p1);
+	return (NULL);
 }
 
 void free_string_array(char **str)
