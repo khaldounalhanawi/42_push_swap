@@ -54,8 +54,11 @@ typedef struct s_list
 {
 	void			*content;
 	int				*index;
+	int				*cost;
+	int				*order;
+	int				*half;
 	struct s_list	*next;
-	struct s_list	*prev;
+	struct s_list	*target;
 }	t_list;
 
 t_list	*ft_lstnew(void *content);

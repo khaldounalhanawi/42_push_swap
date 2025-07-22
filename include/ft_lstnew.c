@@ -24,6 +24,10 @@ t_list	*ft_lstnew(void *content)
 		new->content = content;
 	else
 		new->content = NULL;
-	new->next = NULL;
+	new->index = NULL;
+	new->cost = NULL;
+	new->order = NULL;
+	new->half = NULL;
+	new->target = NULL;
 	return (new);
 }

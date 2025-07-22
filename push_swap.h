@@ -18,10 +18,11 @@ void	rot(t_list **z, char *name);
 void	rev_rot(t_list **z, char *name);
 int		algorithm(t_list **a, int size);
 void	push(t_list **a, t_list **b, char *name);
-void chain_printer(t_list *my_list);
-void double_rev_rot(t_list **a, t_list **b);
-void double_rot(t_list **a, t_list **b);
-
+void	chain_printer(t_list *my_list);
+void	double_rev_rot(t_list **a, t_list **b);
+void	double_rot(t_list **a, t_list **b);
+int		algo_five(t_list **mylist, int size);
+void	algo_three(t_list **z);
 
 
 
