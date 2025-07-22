@@ -205,17 +205,12 @@ void final_organize (t_list **a)
 	while (*a != record)
 	{
 		if (*(int *)record->half > 0)
-		{
 			rot (a, "a");
-		}
 		else
-		{
 			rev_rot (a, "a");
-		}
 	}
 	return ;
 }
-
 
 int algo_five(t_list **mylist, int size)
 {
@@ -223,14 +218,18 @@ int algo_five(t_list **mylist, int size)
 	t_list	**b;
 	t_list	*record;
 	int	condition;
+	int	midian;
 
 	a = mylist;
 	b = malloc (sizeof (t_list*));
 	if (!b)
 		return (-1);
+	midian = size / 2;
 	while (size > 3)
 	{
 		push (b, a, "b");
+		if (*(int*)(*b)->index > midian)
+			rot (b, "b");
 		size --;
 	}
 	algo_three (a);
@@ -302,13 +301,6 @@ int algo_five(t_list **mylist, int size)
 		condition = 0;
 	}
 	final_organize (a);
-	free (*b);
-	free (b);
-
-	// printf ("a after find target= \n");
-	// chain_printer (*a);
-	// printf ("b after find target= \n");
-	// chain_printer (*b);
 	return (1);
 }
 
