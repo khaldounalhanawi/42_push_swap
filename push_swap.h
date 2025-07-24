@@ -23,6 +23,7 @@ void	double_rev_rot(t_list **a, t_list **b);
 void	double_rot(t_list **a, t_list **b);
 int		algo_five(t_list **mylist, int size);
 void	algo_three(t_list **z);
+void	algo_two(t_list **z);
 
 
 

@@ -18,5 +18,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	if (!del || !lst)
 		return ;
 	del(lst->content);
+	del(lst->index);
+	if (lst->cost)
+		del(lst->cost);
+	if (lst->order)
+		del(lst->order);
+	if (lst->half)
+		del(lst->half);
 	free (lst);
 }

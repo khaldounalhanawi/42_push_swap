@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	val;
-	int	sign;
+	long	val;
+	int		sign;
 
 	sign = 1;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
@@ -32,23 +32,24 @@ int	ft_atoi(const char *str)
 	}
 	return (val * sign);
 }
-/*
-#include <stdlib.h>
-#include <stdio.h>
 
-int main()
-{
-	int i = 0;
-	// char a[] = "43b3";
-	char *a[] = {"-+433","","-a34","b","-45b",
-		"+43b9","-43b9","é4","  0990","\t005",
-		"020b","2147483647","-2147483648"};
+// #include <stdlib.h>
+// #include <stdio.h>
 
-	while (i < 13)
-	{
-		printf("my:        %d\t\t", ft_atoi(a[i]));
-		printf("default:   %d\n", atoi(a[i]));
-		i++;
-	}
-}
-*/
+// int main()
+// {
+// 	// int i = 0;
+
+// 	// char *a[] = {"-+433","","-a34","b","-45b",
+// 	// 	"+43b9","-43b9","é4","  0990","\t005",
+// 	// 	"020b","2147483647","-2147483648"};
+
+// 	// while (i < 13)
+// 	// {
+// 	// 	printf("my:        %d\t\t", ft_atoi(a[i]));
+// 	// 	printf("default:   %d\n", atoi(a[i]));
+// 	// 	i++;
+// 	// }
+// 	printf ("%ld\n", ft_atoi ("-2147483649"));
+// }
+

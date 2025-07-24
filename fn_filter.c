@@ -20,7 +20,7 @@ static char **one_arg(char **argv)
 	char **words_split;
 
 	i = 0;
-	words_split = ft_split(argv[1], ' '); //TODO make sure split frees evrythnng
+	words_split = ft_split(argv[1], ' ');
 	if (!words_split)
 		ft_exit (NULL);
 	while (words_split[i])
@@ -28,23 +28,35 @@ static char **one_arg(char **argv)
 		if (input_check (&words_split[i], 0) == -1)
 		{
 			free_string_array (words_split);
-			free (words_split);
-			ft_exit (NULL);
+			ft_exit (words_split);
 		}
 		i++;
 	}
-	words_split[i] = NULL;
 	return (words_split);
 }
 
-void	copy_arr(char **p, char **arr, int end)
+static void	copy_arr(char **p, char **arr, int end)
 {
+	char	*str;
+	int		i;
+	
+	i = 0;
 	while (end)
 	{
-		*p++ = *arr++;
+		str = ft_strdup (*arr);
+		if (!str)
+		{
+			p[i] = NULL;
+			free_string_array (p);
+			ft_exit (p);
+		}
+		p[i] = str;
+		arr++;
 		end --;
+		i++;
 	}
-	*p = NULL;
+	p[i] = NULL;
+	return ;
 }
 
 char **filter(int argc, char **argv)

@@ -33,22 +33,22 @@ int main ()
 }
 
 
-						if (guide (a, start, end) >= 0)
+					if (guide (a, start, end) >= 0)
+					{
+						if (flag == 1)
 						{
-							if (flag == 1)
-							{
-								printf ("guide is %d\n",guide (a, start, end));
-								double_rot (a, b);
-								flag = 0;
-							}
-							else
-							{
-								printf ("guide is %d\n",guide (a, start, end));
-								rot (a, "a");
-							}
+							printf ("guide is %d\n",guide (a, start, end));
+							double_rot (a, b);
+							flag = 0;
 						}
 						else
 						{
 							printf ("guide is %d\n",guide (a, start, end));
-							rev_rot (a, "a");
+							rot (a, "a");
 						}
+					}
+					else
+					{
+						printf ("guide is %d\n",guide (a, start, end));
+						rev_rot (a, "a");
+					}

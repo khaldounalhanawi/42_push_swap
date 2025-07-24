@@ -1,5 +1,19 @@
 #include "push_swap.h"
 
+void algo_two(t_list **z)
+{
+	t_list	*first;
+	t_list	*second;
+
+	if (!z || !*z || !(*z)->next)
+		return ;
+	first = *z;
+	second = first -> next;
+	if (*(int *)first->content > *(int *)second->content)
+		swap (z, "a");
+	return ;
+}
+
 void algo_three(t_list **z)
 {
 	t_list	*first;

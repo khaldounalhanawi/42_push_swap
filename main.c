@@ -1,6 +1,41 @@
 #include "push_swap.h"
+#include <limits.h>
 
-int	*fn_intArr(char **p, int size);
+static int	*fn_intArr(char **p, int size);
+static int	is_in (long val,int *intArr,int size);
+static int	arr_size(char **arr);
+
+int main(int argc, char **argv)
+{
+	char	**myarray;
+	t_list	*my_list;
+	int		*intArray;
+	int		size;
+
+	myarray = filter(argc, argv);
+	if (!myarray)
+		ft_exit (NULL);
+	size = arr_size(myarray);
+	intArray = fn_intArr (myarray, size);
+	if (!intArray)
+	{
+		free_string_array (myarray);
+		ft_exit (myarray);
+	}
+	free_string_array (myarray);
+	free (myarray);
+	my_list = initiate_chain (intArray, size);
+	if (!my_list)
+		ft_exit (intArray);
+	if (size == 3)
+		algo_three (&my_list);
+	else if (size == 2)
+		algo_two (&my_list);
+	else
+		algo_five (&my_list, size);
+	//free all nodes;
+	return (0);
+}
 
 static int	arr_size(char **arr)
 {
@@ -12,77 +47,69 @@ static int	arr_size(char **arr)
 	return (i);
 }
 
-int main(int argc, char **argv)
+static int	is_in (long val,int *intArr,int size)
 {
-	char	**myarray;
-	t_list	*my_list;
-	int		*intArray;
-
-	myarray = filter(argc, argv);
-	if (!myarray)
-		ft_exit (NULL);
-	intArray = fn_intArr (myarray, arr_size(myarray));
-	my_list = initiate_chain (intArray, arr_size(myarray));
-	// if (!my_list)
-	// {
-		// free_string_array (myarray);
-		// ft_exit (nullnfree (myarray));
-	// }
-	if (arr_size(myarray) == 3)
-		algo_three (&my_list);
-	else
-		algo_five (&my_list, arr_size(myarray));
-	// chain_printer (my_list);
-	//algorithm (&my_list, arr_size(myarray));
-
-	// if (algorithm (my_list, arr_size(myarray)) == -1)
-	// 	ft_exit (NULL);
+	int	i;
+	
+	i = 0;
+	while (i < size)
+	{
+		if (intArr[i] == (int)val)
+			return (1);
+		i++;
+	}
 	return (0);
 }
 
-void chain_printer(t_list *my_list)
+static int	*fn_intArr(char **p, int size)
 {
-	if (!(my_list))
-		return;
-	while (my_list->next)
-	{
-		printf ("list says: >%d<\t\t", *(int *)(my_list -> content));
-		printf ("index: >%d<\t", *(int *)(my_list -> index));
-		if (my_list -> target)
-			printf ("target: >%d<\t", *(int *)(my_list -> target -> index));
-		if (my_list -> order)
-			printf ("\t\torder: >%d<\t", *(int *)(my_list -> order));
-		if (my_list -> cost)
-			printf ("\t\tcost: >%d<\t", *(int *)(my_list -> cost));
-		my_list = my_list -> next;
-		printf ("\n");
-	}
-	printf ("list says: >%d< \t\t", *(int *)(my_list -> content));
-	printf ("index: >%d<\t", *(int *)(my_list -> index));
-	if (my_list -> target)
-		printf ("target: >%d<\t", *(int *)(my_list -> target -> index));
-	if (my_list -> order)
-		printf ("\t\torder: >%d<\t", *(int *)(my_list -> order));
-	if (my_list -> cost)
-		printf ("\t\tcost: >%d<\t", *(int *)(my_list -> cost));
-	printf ("\n");
-	return ;
-}
-
-int	*fn_intArr(char **p, int size)
-{
-	int	i;
-	int	*intArr;
+	int		i;
+	int		*intArr;
+	long	val;
 
 	if (!p || !*p || !size)
 		return (NULL);
 	intArr = malloc (sizeof (int) * size);
+	if (!intArr)
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
-		intArr[i] = ft_atoi((const char*)(p)[i]);
+		val = ft_atoi((const char*)(p)[i]);
+		if (val > INT_MAX || val < INT_MIN 
+			|| is_in (val, intArr, i))
+			return (nullnfree (intArr));
+		intArr[i] = (int)val;
 		i++;
 	}
-	// TODO : free p using string free arr
 	return (intArr);
 }
+
+// void chain_printer(t_list *my_list)
+// {
+// 	if (!(my_list))
+// 		return;
+// 	while (my_list->next)
+// 	{
+// 		printf ("list says: >%d<\t\t", *(int *)(my_list -> content));
+// 		printf ("index: >%d<\t", *(int *)(my_list -> index));
+// 		if (my_list -> target)
+// 			printf ("target: >%d<\t", *(int *)(my_list -> target -> index));
+// 		if (my_list -> order)
+// 			printf ("\t\torder: >%d<\t", *(int *)(my_list -> order));
+// 		if (my_list -> cost)
+// 			printf ("\t\tcost: >%d<\t", *(int *)(my_list -> cost));
+// 		my_list = my_list -> next;
+// 		printf ("\n");
+// 	}
+// 	printf ("list says: >%d< \t\t", *(int *)(my_list -> content));
+// 	printf ("index: >%d<\t", *(int *)(my_list -> index));
+// 	if (my_list -> target)
+// 		printf ("target: >%d<\t", *(int *)(my_list -> target -> index));
+// 	if (my_list -> order)
+// 		printf ("\t\torder: >%d<\t", *(int *)(my_list -> order));
+// 	if (my_list -> cost)
+// 		printf ("\t\tcost: >%d<\t", *(int *)(my_list -> cost));
+// 	printf ("\n");
+// 	return ;
+// }
