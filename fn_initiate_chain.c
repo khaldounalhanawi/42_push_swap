@@ -1,107 +1,93 @@
 #include "push_swap.h"
 
-int	normalize (t_list *p);
+static t_list	*populate( t_list *first_node, int size, int *myarray);
+static int	fill_half_order(t_list *first_node);
+static int	fill_cost(t_list *first_node);
 
 t_list *initiate_chain (int *myarray, int size)
 {
 	t_list	*first_node;
-	t_list	*current;
+	int		*val;
 	int		i;
 
 	i = 0;
-	first_node = ft_lstnew (&myarray[i]);
+	val = malloc (sizeof (int));
+	if (!val)
+		return (NULL);
+	*val = myarray[i];
+	first_node = ft_lstnew (val);
 	if (!first_node)
 		return (NULL);
-	while (size > 1)
+	if (!populate (first_node, size, myarray))
+		return (ft_lst_null_clear (&first_node));
+	if (normalize (first_node) == -1)
+		return (ft_lst_null_clear (&first_node));
+	if (fill_half_order (first_node) == -1)
+		return (ft_lst_null_clear (&first_node));
+	if (fill_cost (first_node) == -1)
+		return (ft_lst_null_clear (&first_node));
+	return (first_node);
+}
+
+static t_list	*populate( t_list *first_node, int size, int *myarray)
+{
+	int		i;
+	int		*val;
+	t_list	*current;
+
+	i = 0;
+		while (size > 1)
 	{
 		i ++;
-		current = ft_lstnew (&myarray[i]);
-		if (!current)
-		{
-			ft_lstclear (&first_node, free);
+		val = malloc (sizeof (int));
+		if (!val)
 			return (NULL);
-		}
+		*val = myarray[i];
+		current = ft_lstnew (val);
+		if (!current)
+			return (NULL);
 		ft_lstadd_back(&first_node, current);
 		size --;
-	}
-	if (normalize (first_node) == -1)
-	{
-		ft_lstclear (&first_node, free);
-		return (NULL);
 	}
 	return (first_node);
 }
 
-static void	ft_arr_sort(t_list	**arr, int len)
+static int	fill_half_order(t_list *first_node)
 {
-	int	i;
-	int	j;
-	t_list	*temp;
+	int	*p;
+	int	*o;
 
-	i = 0;
-	while (i < len - 1)
-	{	
-		j = 0;
-		while (j + 1 <= len - 1)
-		{
-			if (*(int *)arr[j]->content > *(int *)arr[j + 1]->content)
-			{
-				temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-static int print_index(t_list **arr, int len)
-{
-	int	i;
-	int	*pi;
-
-	i = 0;
-	while (i < len)
+	while (first_node)
 	{
-		pi = malloc (sizeof (int));
-		if (!pi)
+		p = malloc (sizeof (int));
+		o = malloc (sizeof (int));
+		if (!p || !o)
 		{
-			free (arr);
+			nullnfree (p);
+			nullnfree (o);
 			return (-1);
 		}
-		*pi = i;
-		arr[i]->index = pi;
-		i++;
+		*p = 0;
+		*o = 0;
+		first_node -> half = p;
+		first_node -> order = o;
+		first_node = first_node -> next;
 	}
-	free (arr);
-	return (1);
+		return (1);
 }
 
-int	normalize (t_list *p)
+static int	fill_cost(t_list *first_node)
 {
-	int		len;
-	int		i;
-	t_list	**arr;
+	int	*p;
 
-	len = ft_lstsize (p);
-	arr = malloc (sizeof (t_list*) * len);
-	if (!arr)
-		return (-1);
-	i = 0;
-	while (i < len)
+	while (first_node)
 	{
-		arr[i] = p;
-		i++;
-		p = p->next;
+		p = malloc (sizeof (int));
+		if (!p)
+			return (-1);
+		*p = 0;
+		first_node -> cost = p;
+		first_node = first_node -> next;
 	}
-	ft_arr_sort (arr, len);
-	if (print_index (arr, len) == -1)
-		return (-1);
-	return (1);
+		return (1);
 }
-
-
-
-
-

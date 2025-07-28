@@ -4,11 +4,11 @@
 static int	*fn_intArr(char **p, int size);
 static int	is_in (long val,int *intArr,int size);
 static int	arr_size(char **arr);
+static void solve(int *intArray, int size);
 
 int main(int argc, char **argv)
 {
 	char	**myarray;
-	t_list	*my_list;
 	int		*intArray;
 	int		size;
 
@@ -24,17 +24,24 @@ int main(int argc, char **argv)
 	}
 	free_string_array (myarray);
 	free (myarray);
+	solve (intArray, size);
+	return (0);
+}
+
+static void solve(int *intArray, int size)
+{
+	t_list	*my_list;
+	
 	my_list = initiate_chain (intArray, size);
 	if (!my_list)
 		ft_exit (intArray);
+	free (intArray);	
 	if (size == 3)
 		algo_three (&my_list);
 	else if (size == 2)
 		algo_two (&my_list);
 	else
 		algo_five (&my_list, size);
-	//free all nodes;
-	return (0);
 }
 
 static int	arr_size(char **arr)

@@ -20,7 +20,7 @@ void ft_exit(void *p1)
 {
 	if (p1)
 		free ((void *)p1);
-	write(2, "ERROR\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

@@ -19,7 +19,6 @@ void swap(t_list **z, char *name)
 void rot(t_list **z, char *name)
 {
 	t_list	*start;
-	t_list	*end;
 
 	if (!z || !*z || !(*z)->next)
 		return ;
@@ -30,10 +29,10 @@ void rot(t_list **z, char *name)
 	printf ("r%s\n", name);
 	return ;
 }
+
 void rot_silent(t_list **z)
 {
 	t_list	*start;
-	t_list	*end;
 
 	if (!z || !*z || !(*z)->next)
 		return ;
@@ -102,7 +101,6 @@ void rev_rot(t_list **z, char *name)
 void push(t_list **a, t_list **b, char *name)
 {
 	t_list *temp;
-	t_list *last;
 
 	if (!*b)
 	{
