@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_algorithm_large_helpers_PII.c                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:30:24 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/28 16:30:27 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void cal_cost (t_list *a)
+void	cal_cost(t_list *a)
 {
 	int	val;
 
 	if (!a)
-		return;
+		return ;
 	while (a)
 	{
 		val = *(int *)a->order + *(int *)a->target->order;
@@ -15,10 +27,10 @@ void cal_cost (t_list *a)
 	return ;
 }
 
-t_list *minimum_cost(t_list *a)
+t_list	*minimum_cost(t_list *a)
 {
-	int	min;
-	t_list *temp;
+	int		min;
+	t_list	*temp;
 
 	min = 0;
 	min = *(int *)a->cost;
@@ -40,17 +52,17 @@ t_list *minimum_cost(t_list *a)
 	return (temp);
 }
 
-t_list *find_zero(t_list *a)
+t_list	*find_zero(t_list *a)
 {
 	while (a && *(int *)a->index != 0)
 		a = a->next;
 	return (a);
 }
 
-void final_organize (t_list **a)
+void	final_organize(t_list **a)
 {
 	t_list	*record;
-	
+
 	below_correct (*a);
 	record = find_zero (*a);
 	while (*a != record)

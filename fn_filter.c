@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_filter.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:30:48 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/28 16:30:51 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int input_check(char **argv, int type)
+static int	input_check(char **argv, int type)
 {
-	int i;
+	int	i;
 
 	i = type;
 	while (argv[i])
@@ -14,10 +26,10 @@ static int input_check(char **argv, int type)
 	return (1);
 }
 
-static char **one_arg(char **argv)
+static char	**one_arg(char **argv)
 {
-	int i;
-	char **words_split;
+	int		i;
+	char	**words_split;
 
 	i = 0;
 	words_split = ft_split(argv[1], ' ');
@@ -39,7 +51,7 @@ static void	copy_arr(char **p, char **arr, int end)
 {
 	char	*str;
 	int		i;
-	
+
 	i = 0;
 	while (end)
 	{
@@ -59,10 +71,10 @@ static void	copy_arr(char **p, char **arr, int end)
 	return ;
 }
 
-char **filter(int argc, char **argv)
+char	**filter(int argc, char **argv)
 {
 	char	**p;
-	
+
 	if (argc <= 1)
 		exit (0);
 	if (argc > 2)

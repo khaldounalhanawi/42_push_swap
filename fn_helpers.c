@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_helpers.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:30:58 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/28 16:31:01 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int isnum(char *str)
+int	isnum(char *str)
 {
 	if (!str || *str == ' ')
 		return (0);
@@ -16,7 +28,7 @@ int isnum(char *str)
 	return (1);
 }
 
-void ft_exit(void *p1)
+void	ft_exit(void *p1)
 {
 	if (p1)
 		free ((void *)p1);
@@ -24,14 +36,14 @@ void ft_exit(void *p1)
 	exit(1);
 }
 
-void *nullnfree(void *p1)
+void	*nullnfree(void *p1)
 {
 	if (p1)
 		free ((void *)p1);
 	return (NULL);
 }
 
-void free_string_array(char **str)
+void	free_string_array(char **str)
 {
 	int	i;
 

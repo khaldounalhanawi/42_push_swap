@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_algorithm_small.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:30:38 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/28 16:30:44 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void update_three(t_list **z, t_list **first, t_list **second, t_list **third);
+static void	update_three(t_list **z, t_list **first,
+				t_list **second, t_list **third);
 
-void algo_two(t_list **z)
+void	algo_two(t_list **z)
 {
 	t_list	*first;
 	t_list	*second;
@@ -16,7 +29,7 @@ void algo_two(t_list **z)
 	return ;
 }
 
-void algo_three(t_list **z)
+void	algo_three(t_list **z)
 {
 	t_list	*first;
 	t_list	*second;
@@ -39,9 +52,10 @@ void algo_three(t_list **z)
 	return ;
 }
 
-static void update_three(t_list **z, t_list **first, t_list **second, t_list **third)
+static void	update_three(t_list **z, t_list **first,
+				t_list **second, t_list **third)
 {
 	*first = *z;
-	*second = (*first) -> next;
+	*second = (*first)-> next;
 	*third = (*second)-> next;
 }

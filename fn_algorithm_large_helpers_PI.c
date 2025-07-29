@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_algorithm_large_helpers_PI.c                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:30:11 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/29 17:00:45 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_list *smallest (t_list *a)
+t_list	*smallest(t_list *a)
 {
-	int	smallest;
-	t_list *record;
+	int		smallest;
+	t_list	*record;
 
 	smallest = *(int *)a->index;
 	record = a;
@@ -22,29 +34,29 @@ t_list *smallest (t_list *a)
 		record = a;
 	}
 	return (record);
-} 
+}
 
-void	finder (t_list *a, t_list *b)
+void	finder(t_list *a, t_list *b)
 {
-	t_list *smallest_a;
+	t_list	*smallest_a;
 
 	smallest_a = smallest (a);
 	b ->target = NULL;
 	while (a)
-		{
-			if (!b->target && *(int *)b->index < *(int *)a->index)
-				b->target = a;
-			else if (b->target
-				&& *(int *)b->index < *(int *)a->index
-				&& *(int *)b->target->index > *(int *)a->index)
-				b->target = a;
-			a = a->next;
-		}
-		if (!b->target)
-			b->target = smallest_a;
+	{
+		if (!b->target && *(int *)b->index < *(int *)a->index)
+			b->target = a;
+		else if (b->target
+			&& *(int *)b->index < *(int *)a->index
+			&& *(int *)b->target->index > *(int *)a->index)
+			b->target = a;
+		a = a->next;
+	}
+	if (!b->target)
+		b->target = smallest_a;
 }
 
-void tag (t_list *a)
+void	tag(t_list *a)
 {
 	int	i;
 
@@ -57,7 +69,7 @@ void tag (t_list *a)
 	}
 }
 
-void find_target (t_list *a, t_list *b)
+void	find_target(t_list *a, t_list *b)
 {
 	while (b->next)
 	{
@@ -68,14 +80,13 @@ void find_target (t_list *a, t_list *b)
 	return ;
 }
 
-void below_correct (t_list *a)
+void	below_correct(t_list *a)
 {
 	int	i;
 	int	len;
 
 	i = 0;
 	len = ft_lstsize (a);
-
 	if (len == 1)
 		*(int *)a->half = 1;
 	while (i < len && a)

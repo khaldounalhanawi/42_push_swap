@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhanaw <kalhanaw@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 12:43:58 by kalhanaw          #+#    #+#             */
-/*   Updated: 2025/05/31 12:14:03 by kalhanaw         ###   ########.fr       */
+/*   Updated: 2025/07/28 17:06:29 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 
-long		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int c);

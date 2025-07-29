@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhanaw <kalhanaw@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 15:03:33 by kalhanaw          #+#    #+#             */
-/*   Updated: 2025/05/29 15:06:53 by kalhanaw         ###   ########.fr       */
+/*   Updated: 2025/07/28 18:24:31 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_list	*ft_lstnew(void *content)
 	new->order = NULL;
 	new->half = NULL;
 	new->target = NULL;
+	new -> next = NULL;
 	return (new);
 }

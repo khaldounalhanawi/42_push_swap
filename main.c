@@ -1,47 +1,59 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:31:44 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/29 17:19:30 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <limits.h>
 
-static int	*fn_intArr(char **p, int size);
-static int	is_in (long val,int *intArr,int size);
+static int	*fn_intarr(char **p, int size);
+static int	is_in(long val, int *intarr, int size);
 static int	arr_size(char **arr);
-static void solve(int *intArray, int size);
+static void	solve(int *intarray, int size);
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	**myarray;
-	int		*intArray;
+	int		*intarray;
 	int		size;
 
 	myarray = filter(argc, argv);
 	if (!myarray)
 		ft_exit (NULL);
 	size = arr_size(myarray);
-	intArray = fn_intArr (myarray, size);
-	if (!intArray)
+	intarray = fn_intarr (myarray, size);
+	if (!intarray)
 	{
 		free_string_array (myarray);
 		ft_exit (myarray);
 	}
 	free_string_array (myarray);
 	free (myarray);
-	solve (intArray, size);
+	solve (intarray, size);
 	return (0);
 }
 
-static void solve(int *intArray, int size)
+static void	solve(int *intarray, int size)
 {
 	t_list	*my_list;
-	
-	my_list = initiate_chain (intArray, size);
+
+	my_list = initiate_chain (intarray, size);
 	if (!my_list)
-		ft_exit (intArray);
-	free (intArray);	
+		ft_exit (intarray);
 	if (size == 3)
 		algo_three (&my_list);
 	else if (size == 2)
 		algo_two (&my_list);
 	else
 		algo_five (&my_list, size);
+	free (intarray);
 }
 
 static int	arr_size(char **arr)
@@ -54,42 +66,42 @@ static int	arr_size(char **arr)
 	return (i);
 }
 
-static int	is_in (long val,int *intArr,int size)
+static int	is_in(long val, int *intarr, int size)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < size)
 	{
-		if (intArr[i] == (int)val)
+		if (intarr[i] == (int)val)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-static int	*fn_intArr(char **p, int size)
+static int	*fn_intarr(char **p, int size)
 {
 	int		i;
-	int		*intArr;
+	int		*intarr;
 	long	val;
 
 	if (!p || !*p || !size)
 		return (NULL);
-	intArr = malloc (sizeof (int) * size);
-	if (!intArr)
+	intarr = malloc (sizeof (int) * size);
+	if (!intarr)
 		return (NULL);
 	i = 0;
 	while (i < size)
 	{
-		val = ft_atoi((const char*)(p)[i]);
+		val = ft_atoi ((const char *)(p)[i]);
 		if (val > INT_MAX || val < INT_MIN 
-			|| is_in (val, intArr, i))
-			return (nullnfree (intArr));
-		intArr[i] = (int)val;
+			|| is_in (val, intarr, i))
+			return (nullnfree (intarr));
+		intarr[i] = (int)val;
 		i++;
 	}
-	return (intArr);
+	return (intarr);
 }
 
 // void chain_printer(t_list *my_list)

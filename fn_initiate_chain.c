@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_initiate_chain.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:31:06 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/28 18:26:28 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static t_list	*populate( t_list *first_node, int size, int *myarray);
-static int	fill_half_order(t_list *first_node);
-static int	fill_cost(t_list *first_node);
+static int		fill_half_order(t_list *first_node);
+static int		fill_cost(t_list *first_node);
 
-t_list *initiate_chain (int *myarray, int size)
+t_list	*initiate_chain(int *myarray, int size)
 {
 	t_list	*first_node;
 	int		*val;
@@ -36,7 +48,7 @@ static t_list	*populate( t_list *first_node, int size, int *myarray)
 	t_list	*current;
 
 	i = 0;
-		while (size > 1)
+	while (size > 1)
 	{
 		i ++;
 		val = malloc (sizeof (int));
@@ -73,7 +85,7 @@ static int	fill_half_order(t_list *first_node)
 		first_node -> order = o;
 		first_node = first_node -> next;
 	}
-		return (1);
+	return (1);
 }
 
 static int	fill_cost(t_list *first_node)
@@ -89,5 +101,5 @@ static int	fill_cost(t_list *first_node)
 		first_node -> cost = p;
 		first_node = first_node -> next;
 	}
-		return (1);
+	return (1);
 }

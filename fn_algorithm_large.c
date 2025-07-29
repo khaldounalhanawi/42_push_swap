@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_algorithm_large.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:29:29 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/29 17:07:05 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void run (t_list **a, t_list **b);
+static void	run(t_list **a, t_list **b);
 
-int algo_five(t_list **my_list, int size)
+int	algo_five(t_list **my_list, int size)
 {
 	t_list	**a;
 	t_list	**b;
 
-	a = malloc (sizeof (t_list*));
-	b = malloc (sizeof (t_list*));
+	a = malloc (sizeof (t_list *));
+	b = malloc (sizeof (t_list *));
 	if (!b || !a)
 	{
 		nullnfree (a);
@@ -20,11 +32,12 @@ int algo_five(t_list **my_list, int size)
 	run (a, b);
 	final_organize (a);
 	ft_lstclear (a, free);
+	free (a);
 	free (b);
 	return (1);
 }
 
-static void calculate_new (t_list **a, t_list **b)
+static void	calculate_new(t_list **a, t_list **b)
 {
 	find_target (*a, *b);
 	tag (*a);
@@ -34,10 +47,10 @@ static void calculate_new (t_list **a, t_list **b)
 	cal_cost (*b);
 }
 
-static void run (t_list **a, t_list **b)
+static void	run(t_list **a, t_list **b)
 {
-	int	condition;
-	t_list *record;
+	int		condition;
+	t_list	*record;
 
 	condition = 0;
 	while (condition == 0 && (*b))
@@ -52,7 +65,7 @@ static void run (t_list **a, t_list **b)
 				break ;
 			}
 			if (double_action (a, b, record))
-				continue;
+				continue ;
 			single_action (a, b, record);
 		}
 		condition = 0;

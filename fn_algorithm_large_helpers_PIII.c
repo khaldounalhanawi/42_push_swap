@@ -1,5 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fn_algorithm_large_helpers_PIII.c                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/28 16:30:31 by kalhanaw          #+#    #+#             */
+/*   Updated: 2025/07/29 17:00:14 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "push_swap.h"
 
 int	double_action(t_list **a, t_list **b, t_list *record)
 {
@@ -11,7 +22,6 @@ int	double_action(t_list **a, t_list **b, t_list *record)
 		double_rot (a, b);
 		return (1);
 	}
-
 	if (*(int *)(*b)->index != *(int *)record->index 
 		&& *(int *)record->half < 0
 		&& *(int *)(*a)->index != *(int *)record->target->index
@@ -30,13 +40,13 @@ int	single_action(t_list **a, t_list **b, t_list *record)
 		rot (b, "b");
 	if (*(int *)(*b)->index != *(int *)record->index 
 		&& *(int *)record->half < 0)
-		rev_rot (b , "b");
+		rev_rot (b, "b");
 	if (*(int *)(*a)->index != *(int *)record->target->index
 		&& *(int *)record->target->half > 0)
 		rot (a, "a");
 	if (*(int *)(*a)->index != *(int *)record->target->index
 		&& *(int *)record->target->half < 0)
-		rev_rot (a , "a");
+		rev_rot (a, "a");
 	return (0);
 }
 
@@ -48,7 +58,7 @@ void	reduce_a(t_list **a, t_list **b, int size)
 	while (size > 3)
 	{
 		push (b, a, "b");
-		if (*(int*)(*b)->index > midian)
+		if (*(int *)(*b)->index > midian)
 			rot (b, "b");
 		size --;
 	}
