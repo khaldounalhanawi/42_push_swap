@@ -7,14 +7,20 @@ CFILES = ft_strnstr.c ft_isdigit.c ft_putstr_fd.c ft_strlcpy.c \
 	ft_putendl_fd.c ft_toupper.c ft_split.c ft_strrchr.c ft_isalpha.c \
 	ft_memchr.c ft_putchar_fd.c ft_memset.c ft_substr.c ft_strncmp.c ft_strmapi.c \
 	ft_strtrim.c ft_memmove.c ft_strlcat.c ft_calloc.c ft_strdup.c ft_atoi.c \
-	ft_isalnum.c ft_itoa.c ft_tolower.c
+	ft_isalnum.c ft_itoa.c ft_tolower.c \
+	ft_printf.c general_helper.c print_cs.c \
+	print_p.c print_x.c \
+	print_d.c print_u.c print_xc.c
 
 OBJS = ft_strnstr.o ft_isdigit.o ft_putstr_fd.o ft_strlcpy.o ft_strlen.o \
 	ft_memcmp.o ft_putnbr_fd.o ft_strchr.o ft_striteri.o ft_bzero.o ft_strjoin.o \
 	ft_isascii.o ft_memcpy.o ft_isprint.o ft_putendl_fd.o ft_toupper.o ft_split.o \
 	ft_strrchr.o ft_isalpha.o ft_memchr.o ft_putchar_fd.o ft_memset.o ft_substr.o \
 	ft_strncmp.o ft_strmapi.o ft_strtrim.o ft_memmove.o ft_strlcat.o ft_calloc.o \
-	ft_strdup.o ft_atoi.o ft_isalnum.o ft_itoa.o ft_tolower.o
+	ft_strdup.o ft_atoi.o ft_isalnum.o ft_itoa.o ft_tolower.o \
+	ft_printf.o general_helper.o print_cs.o \
+	print_p.o print_x.o \
+	print_d.o print_u.o print_xc.o
 	
 BFILES = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c

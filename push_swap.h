@@ -6,7 +6,7 @@
 /*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:33:37 by kalhanaw          #+#    #+#             */
-/*   Updated: 2025/07/29 18:04:46 by kalhanaw         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:18:11 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft.h"
-# include "ft_printf.h"
 
 int		isnum(char *str);
 void	ft_exit(void *p1);

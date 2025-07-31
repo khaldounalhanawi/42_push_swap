@@ -6,7 +6,7 @@
 /*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 12:43:58 by kalhanaw          #+#    #+#             */
-/*   Updated: 2025/07/28 17:06:29 by kalhanaw         ###   ########.fr       */
+/*   Updated: 2025/07/31 15:17:49 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdio.h>
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 long	ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -49,6 +53,17 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+int		ft_printf(const char *input, ...);
+int		print_c(va_list ap);
+int		print_s(va_list ap);
+int		print_p(va_list ap);
+int		print_d(va_list ap);
+int		print_u(va_list ap);
+int		print_x(va_list ap);
+int		print_xc(va_list ap);
+int		print_percent(void);
+char	*ft_strchr(const char *s, int c);
+void	ft_putstr(char *s);
 
 typedef struct s_list
 {
