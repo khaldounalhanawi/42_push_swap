@@ -6,7 +6,7 @@
 /*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:31:44 by kalhanaw          #+#    #+#             */
-/*   Updated: 2025/07/29 17:19:30 by kalhanaw         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:40:19 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,15 @@ static void	solve(int *intarray, int size)
 	if (!my_list)
 		ft_exit (intarray);
 	if (size == 3)
+	{
 		algo_three (&my_list);
+		ft_lstclear (&my_list, free);
+	}
 	else if (size == 2)
+	{
 		algo_two (&my_list);
+		ft_lstclear (&my_list, free);
+	}
 	else
 		algo_five (&my_list, size);
 	free (intarray);

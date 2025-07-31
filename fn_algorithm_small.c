@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fn_algorithm_small.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kalhanaw <kalhanaw@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: kalhanaw <kalhanaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:30:38 by kalhanaw          #+#    #+#             */
-/*   Updated: 2025/07/28 16:30:44 by kalhanaw         ###   ########.fr       */
+/*   Updated: 2025/07/31 13:41:03 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
